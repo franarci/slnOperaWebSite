@@ -6,9 +6,12 @@ using System.Web.Mvc;
 using OperaWebSite.Models;
 using OperaWebSite.Data;
 using System.Data.Entity;
+using System.Diagnostics;
+using OperaWebSite.Filter;
 
 namespace OperaWebSite.Controllers
 {
+    [MyFilterAction]
     public class OperaController : Controller
     {
 
@@ -16,6 +19,7 @@ namespace OperaWebSite.Controllers
         private OperaDbContext context = new OperaDbContext();
 
         // GET: Opera
+        [MyFilterAction]
         public ActionResult Index()
         {
             var operas = context.Operas.ToList();
@@ -24,7 +28,7 @@ namespace OperaWebSite.Controllers
             //el controller devuelve una lista "Index" con la lista de operas
             return View("Index", operas);
         }
-
+        [MyFilterAction]
         [HttpGet]//YA ESTA IMPLICITO, NO ES NECESARIO PONERLO
         public ActionResult Create()
         {
@@ -36,6 +40,7 @@ namespace OperaWebSite.Controllers
 
 
         //Opera/Create --> POST
+        [MyFilterAction]
         [HttpPost]
         public ActionResult Create(Opera opera)
         {
@@ -50,6 +55,7 @@ namespace OperaWebSite.Controllers
 
         //Opera/Detail/id --> GET
         //[HttpGet] otra vez opcional xq por default ya es GET
+        [MyFilterAction]
         public ActionResult Detail(int id)
         {
             Opera opera = context.Operas.Find(id);
@@ -61,6 +67,7 @@ namespace OperaWebSite.Controllers
         }
         //Opera/Delete/id --> GET
         //[HttpGet]
+        [MyFilterAction]
         public ActionResult Delete(int id)
         {
             Opera opera = context.Operas.Find(id);
@@ -76,6 +83,7 @@ namespace OperaWebSite.Controllers
         }
 
         //Opera/Delete  --> POST
+        [MyFilterAction]
         [HttpPost]
         [ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
@@ -89,6 +97,7 @@ namespace OperaWebSite.Controllers
         }
 
         //Opera/Edit --> Get
+        [MyFilterAction]
         public ActionResult Edit(int id)
         {
             Opera opera = context.Operas.Find(id);
@@ -100,6 +109,7 @@ namespace OperaWebSite.Controllers
         }
 
         //Opera/Edit --> POST
+        [MyFilterAction]
         [HttpPost]
         [ActionName("Edit")]
         public ActionResult Edit(Opera opera)
@@ -112,5 +122,7 @@ namespace OperaWebSite.Controllers
             }
             return View("Edit", opera);
         }
+
+
     }
 }
