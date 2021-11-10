@@ -1,36 +1,76 @@
 ﻿@model IEnumerable<OperaWebSite.Models.Opera>
 
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>@Html.ActionLink("Create New", "Create", "Opera")</p>
-    <table>
+
+<p>@Html.ActionLink("Create New", "Create", "Opera")</p>
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Title)</th>
+        <th>@Html.DisplayNameFor(model => model.Composer)</th>
+        <th>@Html.DisplayNameFor(model => model.Year)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>@Html.DisplayNameFor(model=>model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.Composer)</th>
-            <th>@Html.DisplayNameFor(model => model.Year)</th>
-            <th></th>
+            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+            <td>@Html.DisplayFor(modelItem => item.Composer)</td>
+            <td>@Html.DisplayFor(modelItem => item.Year)</td>
+            <td>
+                @Html.ActionLink("Detail", "Detail", new { id = item.OperaId })
+            </td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.OperaId })</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = item.OperaId }) </td>
         </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem=>item.Title)</td>
-                <td>@Html.DisplayFor(modelItem => item.Composer)</td>
-                <td>@Html.DisplayFor(modelItem => item.Year)</td>
-                <td>
-                    @Html.ActionLink("Detail", "Detail", new {id= item.OperaId})
-                </td>
-                <td>@Html.ActionLink("Delete", "Delete", new {id= item.OperaId })</td>
-                <td>@Html.ActionLink("Edit", "Edit", new {id= item.OperaId }) </td>
-            </tr>
-        }
-    </table>
+    }
+</table>
+@section IzqBar
+{
+    <h3>Operas de Mozart:</h3>
+    <div id="Links">
+        <ul>
+            <li>
+                <a href="https://www.youtube.com/watch?v=6DmZHK4HAkc">Bodas de Fígaro</a>
+            </li>
 
-</body>
-</html>
+            <li>
+                <a href="https://www.youtube.com/watch?v=SJI43UaGeCc">La Flauta Mágica</a>
+            </li>
+
+            <li>
+                <a href="https://www.youtube.com/watch?v=jzUJWDU_1Rg">Symphony nº 40</a>
+            </li>
+        </ul>
+    </div>
+
+
+}
+
+@section DerBar
+    {
+    <div id="img1">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Mozart-small.jpg" />
+        <a href="https://es.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart">Wolfgang Amadeus Mozart</a>
+
+    </div>
+
+    <div id="img2">
+
+        <img src="https://www.lavanguardia.com/files/image_449_220/uploads/2017/03/17/5f15f02b73f64.jpeg" />
+        <a href="https://es.wikipedia.org/wiki/Ludwig_van_Beethoven">Ludwig van Beethoven</a>
+
+    </div>
+
+
+    <div id="img3">
+        <img src="https://cdn.radiofrance.fr/s3/cruiser-production/2014/10/51456a86-e064-4f8c-9453-975a99204ef1/600x337_bach_parodie_mea.jpg" />
+        <a href="https://es.wikipedia.org/wiki/Johann_Sebastian_Bach">Johann Sebastian Bach</a>
+
+    </div>
+
+
+
+}
+

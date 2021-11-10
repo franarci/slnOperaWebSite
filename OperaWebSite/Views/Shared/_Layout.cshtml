@@ -1,40 +1,74 @@
 ﻿<!DOCTYPE html>
+
+@{ 
+    ViewBag.Title = "Index";
+}
+
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Main.css" rel="stylesheet" />
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+    <header>
+        <div id="banner">
+            <h1>BANNER</h1>
         </div>
-    </div>
+        <div id="login">
+            <h1>LOGIN</h1>
+        </div>
+    </header>
+    <div id="menu">
+        <ul>
+            <li>
+                <a href="#">Inicio</a>
+            </li>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+            <li>
+                <a href="#">Opera</a>
+            </li>
 
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+            <li>
+                <a href="#">Empleado</a>
+            </li>
+
+        </ul>
+
+
+    </div>
+    <main>
+        <div id="izq">
+            @if (IsSectionDefined("IzqBar"))
+            {
+                @RenderSection("IzqBar")
+            }
+            else
+            {
+                <h4>Calle Falsa 123</h4>
+                <h4>03544-4456957</h4>
+            }
+        </div>
+        <div id="content">
+            @RenderBody()
+        </div>
+        <div id="der">
+            @if (IsSectionDefined("DerBar"))
+            {
+                @RenderSection("DerBar")
+            }
+            else
+            {
+                <h3>Imagenes del Exterior del Teatro</h3>
+                <img src="http://teatrocolon.org.ar/sites/default/files/styles/d8/public/2019-10/teatro-colon_exterior_001.jpg?itok=H4-VExa7" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Buenos_Aires_Teatro_Colon_2.jpg" />
+                <img src="https://es.wikiarquitectura.com/wp-content/uploads/2017/01/03_teatro_colon-500x321.jpg" />
+            }
+        </div>
+    </main>
+    <div id="footer">
+        <h2>FOOTER</h2>
+    </div>
 </body>
 </html>

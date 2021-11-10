@@ -20,7 +20,7 @@ namespace OperaWebSite
                 );
             routes.MapRoute(
                 name: "SearchByTitle",
-                url: "{controller}/{action}/{title}",
+                url: "{controller}/search/{title}",
                 defaults: new { controller = "Test", action = "SearchByTitle" }
                 );
             routes.MapRoute(

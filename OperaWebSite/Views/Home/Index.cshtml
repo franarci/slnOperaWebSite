@@ -1,19 +1,22 @@
 ﻿
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
+<h1>Bienvenido al sistema Web del Teatro Milan</h1>
+<h3>@ViewBag.Fecha</h3>
+<h3>@ViewBag.Hora</h3>
+<p>@Html.ActionLink("Back to List", "Index", "Opera")</p>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-        <h1>Bienvenido al sistema Web del Teatro Milan</h1>
-        <p>@Html.ActionLink("Back to List", "Index", "Opera")</p>
+@section IzqBar
+{
+    <h2>Historia del Teatro Colon</h2>
+    <div id="parrafo">
+        <p>
+            El Teatro Colón inició sus actividades en 1857 en un edificio ubicado en la Plaza de Mayo, donde funcionó hasta 1888. El teatro se mudó entonces al edificio actual ubicado frente a la Plaza Vaticano, que tardó 20 años en ser construido hasta su inauguración en 1908.
+        </p>
+
+        <p>
+            En su historia se destaca la creación de los cuerpos artísticos como la Orquesta, el Coro y el Ballet en la década de 1920, ante la imposibilidad de contar siempre con elencos extranjeros completos. En 1931 se realiza la municipalización que, hasta entrada la Segunda Guerra Mundial, logró una de las etapas más estables y fructíferas del teatro. En 1946 el peronismo impulsó una política de apertura a la música popular y de mayor democratización del público habitual, que fue revertida luego de su derrocamiento en 1955 y nuevamente retomada cuando se recuperó la democracia en 1983.
+            
+
+        </p>
     </div>
-</body>
-</html>
+}

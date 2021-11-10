@@ -1,0 +1,82 @@
+﻿body {
+    width: 1200px;
+    background-color: aquamarine;
+}
+
+header {
+    display: flex;
+    flex-direction:row;
+}
+
+#banner {
+    background-image: url("https://turismo.buenosaires.gob.ar/sites/turismo/files/teatro_colon_interior_nicolas1500x610.jpg");
+    height: 250px;
+    width: 800px;
+}
+
+#login {
+    background-color: #C70039;
+    float: right;
+    height: 250px;
+    width: 400px;
+}
+
+#menu {
+    text-align: right;
+    background-color: #581845;
+    color: white;
+}
+
+#menu ul {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #ADB659;
+}
+
+#menu li {
+    margin-left: 15px;
+    list-style: none;
+    text-decoration: none;
+}
+
+#menu ul li a {
+    line-height: 70px;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: aliceblue;
+}
+
+
+#izq {
+    background-color: #DAF7A6;
+    float: left;
+    width: 21%;
+    max-height: 600px;
+}
+
+
+#content {
+    background-color: #FFC300;
+    max-width: 600px;
+    height:600px;
+    float: left;
+}
+
+#der {
+    background-color: #DAF7A6;
+    display: inline;
+    float: right;
+    max-width: 347px;
+    max-height: 600px;
+}
+
+#der img {
+    max-width:77%;
+}
+
+#footer {
+    background-color: #900C3F;
+    color: white;
+    text-align: right;
+    clear:both;
+}
